@@ -35,4 +35,6 @@ Decorador que nos ayuda a pasar información de componentes padres a componentes
 ___Permite mediante la instancia del componente modificar una propiedad del servicio o metodo___
 
 
-# Tree Shaking 
+# Tree Shaking
+
+# @ViewChild
