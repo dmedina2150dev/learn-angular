@@ -38,3 +38,10 @@ ___Permite mediante la instancia del componente modificar una propiedad del serv
 # Tree Shaking
 
 # @ViewChild
+
+# Conocer las opciones de routerLinkActiveOptions
+
+Principalmente la utilizamos para evitar el problema con el routerLinkActive marque ('/') este path cuando este en todas las rutas
+
+# LazyLoad - Carga perezosa
+
