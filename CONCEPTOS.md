@@ -45,3 +45,8 @@ Principalmente la utilizamos para evitar el problema con el routerLinkActive mar
 
 # LazyLoad - Carga perezosa
 
+# ActivatedRoute 
+
+Existe varias formas de obtener el valor de la url, uno que es sin Observable y otros que toman el snapshop de como se encuentra el url.
+Lo mas recomendable es utilizar el observable para controlar cuando el usuario cambia dinamicamente el url. Y la aplicación no necesariamente se recargara y no obtendremos el nuevo snapshop de la url. Puede que la información que mostremos no sea la correcta.
+
