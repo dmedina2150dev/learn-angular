@@ -53,3 +53,9 @@ Lo mas recomendable es utilizar el observable para controlar cuando el usuario c
 # HttpClient
 
 __Nota:__ las peticiones automaticamente luego de hacerse se cierran automaticamente utilizando el (take) de rxjs
+
+# Pipes 
+
+[Documentación ref]()
+
+[Lista de Pipes de Angular](https://angular.io/api?query=pipe)
