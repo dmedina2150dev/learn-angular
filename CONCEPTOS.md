@@ -59,3 +59,7 @@ __Nota:__ las peticiones automaticamente luego de hacerse se cierran automaticam
 [Documentación ref]()
 
 [Lista de Pipes de Angular](https://angular.io/api?query=pipe)
+
+## Pipes Investigar y colocar ejemeplo
+
+> i18nSelect 
