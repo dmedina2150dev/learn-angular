@@ -1,6 +1,11 @@
 # Angular 
 
+Es un marco de trabajo de código abierto basado en TypeScript. Desarrollado y mantenido por Google, Angular es más que un framework, es una plataforma que nos da la posibilidad de desarrollar aplicaciones web como aplicaciones mobile. Además, es un framework de estructura que nos va a brindar funcionalidades para extender el template de nuestra aplicación.
+
+[Angular CLI](./info/CLI.md)
+
 ## File System Proyecto creado por el CLI
+
 **.angular**
 
 Es un directorio que no deberiamos nunca ir a modificarlos, este archivo es ignorado por el lado de git, esta declarado en el gitignore. Esta carpeta ayuda a Angular a manejar rapidamente cuando se detecta algun cambio, a levantar rapidamente la aplicación si no existe ningun cambio. Basicamente maneja el cache de nuestro proyecto en desarrollo y en construccion.

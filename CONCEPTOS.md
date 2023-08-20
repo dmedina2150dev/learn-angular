@@ -2,6 +2,9 @@
 
 # Getters and setters
 
+# Directiva @Component 
+
+
 # Directiva *ngIf
 
 # Directiva [*ngFor](https://angular.io/api/common/NgFor#description) 
@@ -22,18 +25,43 @@ Decorador que nos ayuda a pasar información de componentes padres a componentes
 
 # (ngSubmit) Evento
 
-# @Services [Singleton](https://angular.io/guide/singleton-services) 
+# Services
 
-**NOTA: La inyección de estos servicios no deberian ser publicos, ya que al importar el componente o usarlo de forma directa, tecnicamente estamos exponiendo de igual forma el servicio o singleton**
+Es angular son utilizados como un [Singleton](https://angular.io/guide/singleton-services), para que solo exista una instancia de la clase en toda la aplicación. Para cumplir con esto existen dos formas de implementarlos o decirle a Angular que este es una clase proveedora.
+
+> La primera y la más recomendada a partir de Angular 6.0 es utilizando el decorador (@Injectable) con la propiedad (providedIn). Que nos ayuda a avisarle a Angular que este servicio estara disponible para toda la aplicación.
+
+```Typescript
+    import { Injectable } from '@angular/core';
+
+    @Injectable({ providedIn: 'root' })
+    export class UserService {
+
+    }
+```
+
+> La segunda forma seria incluir este servicio en los providers de el modulo inicial de la aplicación. (AppModule).
+
+```Typescript
+    @NgModule({
+    …
+    providers: [ UserService ],
+    …
+    })
+```
+
+**NOTA: La inyección de estos servicios en los (@Component) que lo requieram, no deberián ser públicos, ya que al importar el (@Componente) o usarlo de forma directa, tecnicamente estamos exponiendo de igual forma el servicio o singleton**
 
 **Esto permitiria hacer algo como lo siguiente:**
 
-```
- NameComponent.nameService.propiedadService = "Loquesea";
+```Typecript
+    NameComponent.nameService.propiedadService = "Loquesea";
 ```
 
-___Permite mediante la instancia del componente modificar una propiedad del servicio o metodo___
+**__Permitiendo mediante la instancia del (@Componente) modificar una propiedad del servicio o metodo__**
 
+<br />
+<br />
 
 # Tree Shaking
 
