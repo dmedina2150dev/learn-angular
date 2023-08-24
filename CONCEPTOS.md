@@ -2,18 +2,9 @@
 
 # Getters and setters
 
-# Directiva @Component 
-
-
-# Directiva *ngIf
-
-# Directiva [*ngFor](https://angular.io/api/common/NgFor#description) 
-
-# Directiva [ngClass]
-
 # Ng-Template
 
-# Directiva *ngIf-else
+
 
 # Modulos en Angular
 
@@ -63,7 +54,6 @@ Es angular son utilizados como un [Singleton](https://angular.io/guide/singleton
 <br />
 <br />
 
-# Tree Shaking
 
 # @ViewChild
 
@@ -82,7 +72,7 @@ Lo mas recomendable es utilizar el observable para controlar cuando el usuario c
 
 __Nota:__ las peticiones automaticamente luego de hacerse se cierran automaticamente utilizando el (take) de rxjs
 
-# Pipes 
+# [Pipes](https://angular.io/api/core/Pipe) 
 
 [Documentación ref]()
 
@@ -91,3 +81,22 @@ __Nota:__ las peticiones automaticamente luego de hacerse se cierran automaticam
 ## Pipes Investigar y colocar ejemeplo
 
 > i18nSelect 
+
+
+## [PrimeNG](https://primeng.org/)
+
+
+# Lecturas pendientes de Angular
+
+[Patron de diseño Creacionales y estructurales](https://softwarecrafters.io/typescript/patrones-diseno-creacionales-estructurales)
+
+[Patron de diseño Creacionales y estructurales](https://medium.com/@2paedev/patrones-de-dise%C3%B1o-en-angular-y-typescript-b1f49e026ddc)
+
+[Arquitectura en Angular](https://dev.to/vanessamarely/arquitectura-en-angular-5c23)
+
+[Tree Shaking](https://javascript.plainenglish.io/angular-regime-series-tree-shaking-technique-3dc07f5e85a1)
+
+[Tree Shaking](https://www.angular.love/en/2020/12/21/angular-tree-shaking-2/)
+
+[Decorators Typescript](https://www.typescriptlang.org/docs/handbook/decorators.html)
+
