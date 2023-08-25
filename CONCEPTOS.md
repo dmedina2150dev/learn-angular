@@ -82,6 +82,9 @@ __Nota:__ las peticiones automaticamente luego de hacerse se cierran automaticam
 
 > i18nSelect 
 
+## Variables de entorno en Angular
+Las variables de entorno es el valor de una variable valga de redundancia que varia dependiendo del ambiente o la ejecución del programa. Si esta en producción, testing, desarrollo, etc.
+
 
 ## [PrimeNG](https://primeng.org/)
 
