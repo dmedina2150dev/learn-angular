@@ -11,6 +11,7 @@ import { Color, Hero } from '../../interfaces/hero.interface';
 export class OrderComponent implements OnInit {
 
     public isUpperCase: boolean = false;
+    public orderBy?: keyof Hero;
 
     public heroes: Hero[] = [
         {
@@ -44,5 +45,9 @@ export class OrderComponent implements OnInit {
 
     toogleUpperCase(): void {
         this.isUpperCase = !this.isUpperCase;
+    }
+
+    changeOrder( value: keyof Hero ) {
+        this.orderBy = value;
     }
 }
