@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'products-order',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class OrderComponent {
+export class OrderComponent implements OnInit {
 
+    public isUpperCase: boolean = false;
+
+    ngOnInit(): void { }
+
+    toogleUpperCase(): void {
+        this.isUpperCase = !this.isUpperCase;
+    }
 }

@@ -2,6 +2,35 @@
     header="Pipe Personalizados"
     class="p-1 my-3">
     <p>
-        Pipes Personalizados - Creados por {{ 'nosotros' | toggleCase }} mismos
+        Pipes Personalizados - Creados por {{ 'nosotros' | toggleCase:isUpperCase }} mismos
     </p>
 </p-panel>
+
+
+<p-toolbar>
+    <div class="p-toolbar-group-start">
+        <p-button
+            label="ToogleCase"
+            icon="pi pi-search"
+            class="mr-2"
+            (click)="toogleUpperCase()"
+            ></p-button>
+    </div>
+
+    <div class="p-toolbar-group-end">
+        <p-button
+            label="Por nombre"
+            icon="pi pi-sort"
+            styleClass="p-button-success mr-2"></p-button>
+
+        <p-button
+            label="Por volar"
+            icon="pi pi-sort "
+            styleClass="p-button-danger mr-2"></p-button>
+
+        <p-button
+            label="Por color "
+            icon="pi pi-sort "
+            styleClass="p-button-danger mr-2"></p-button>
+    </div>
+</p-toolbar>
