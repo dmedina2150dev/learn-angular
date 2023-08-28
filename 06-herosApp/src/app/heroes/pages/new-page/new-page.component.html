@@ -10,40 +10,36 @@
     <div class="col-12 sm:col-6">
         <mat-card>
             <mat-card-content>
-                <div class="grid">
+                <form [formGroup]="heroForm" class="grid" (ngSubmit)="onSubmit()">
                     <mat-form-field class="col-12 sm:col-6">
                         <mat-label>Super Héroe</mat-label>
-                        <input type="text" matInput required=""/>
+                        <input formControlName="superhero"  type="text" matInput required/>
                     </mat-form-field>
                     <mat-form-field class="col-12 sm:col-6">
                         <mat-label>Alter ego</mat-label>
-                        <input type="text" matInput required=""/>
-                    </mat-form-field>
-                    <mat-form-field class="col-12 sm:col-6">
-                        <mat-label>Primera Aparición</mat-label>
-                        <input type="text" matInput required=""/>
+                        <input formControlName="alter_ego"  type="text" matInput required/>
                     </mat-form-field>
                     <mat-form-field class="col-12">
                         <mat-label>Primera Aparición</mat-label>
-                        <input type="text" matInput required=""/>
+                        <input formControlName="first_appearance"  type="text" matInput required/>
                     </mat-form-field>
                     <mat-form-field class="col-12">
                         <mat-label>Personajes</mat-label>
-                        <input type="text" matInput required=""/>
+                        <input formControlName="characters"  type="text" matInput required/>
                     </mat-form-field>
                     <mat-form-field class="col-12">
                         <mat-label>Creador</mat-label>
-                        <mat-select required="">
+                        <mat-select formControlName="publisher" required>
                             <mat-option *ngFor="let publicher of publichers" [value]="publicher.id">
                                 {{ publicher.desc }}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field class="col-12">
-                        <mat-label>Personajes</mat-label>
-                        <input type="text" matInput required=""/>
+                        <mat-label>Imagen alternativa</mat-label>
+                        <input formControlName="alt_img"  type="text" matInput/>
                     </mat-form-field>
-                </div>
+                </form>
 
                 <div class="flex justify-content-between">
 
@@ -51,7 +47,8 @@
                         Borrar
                     </button>
 
-                    <button mat-flat-button color="primary">
+                    <!-- Se llama el metodo onSubmit aqui igual porque el boton esta fuera del formulario -->
+                    <button mat-flat-button color="primary" (click)="onSubmit()">
                         Guardar
                     </button>
                 </div>

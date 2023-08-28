@@ -88,6 +88,25 @@ Las variables de entorno es el valor de una variable valga de redundancia que va
 
 ## [PrimeNG](https://primeng.org/)
 
+## ReactiveForm
+
+FormGroup 
+
+```Angular
+public heroForm = new FormGroup({
+        id: new FormControl(''),
+        superhero: new FormControl('', { nonNullable: true }),
+        publisher: new FormControl<Publisher>( Publisher.DCComics ),
+        alter_ego: new FormControl(''),
+        first_appearance: new FormControl(''),
+        characters: new FormControl(''),
+        alt_img: new FormControl(''),
+    });
+
+this.heroForm.getRawValue() // Retorna todos los campos del formulario sin importar si estan validos o no
+
+```
+
 
 # Lecturas pendientes de Angular
 
