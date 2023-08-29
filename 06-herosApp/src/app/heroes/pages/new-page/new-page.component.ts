@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { switchMap } from 'rxjs';
+import { filter, switchMap, tap } from 'rxjs';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -99,21 +99,36 @@ export class NewPageComponent implements OnInit {
             data: this.heroForm.value,
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            // console.log('The dialog was closed');
-            // console.log({ result });
+        dialogRef.afterClosed()
+            .pipe(
+                filter((result: boolean) => result),
+                // tap(result => console.log({ result })),
+                switchMap(() => this.heroesService.deleteHeroById(this.currentHero.id)),
+                // tap(wasDeleted => console.log({ wasDeleted })),
+                filter((wasDeleted: boolean) => wasDeleted),
+            )
+            .subscribe(result => {
+                if (result) {
+                    this.showSnackbar(`${this.currentHero.superhero} Eliminated`);
+                    this._router.navigate(['/']);
+                }
 
-            if( !result ) return;
-            // console.log("deleting")
+            });
+        // dialogRef.afterClosed().subscribe(result => {
+        //     // console.log('The dialog was closed');
+        //     // console.log({ result });
 
-            this.heroesService.deleteHeroById( this.currentHero.id )
-                .subscribe( wasDeleted => {
-                    if( wasDeleted ) {
-                        this.showSnackbar(`${this.currentHero.superhero} Eliminated`);
-                        this._router.navigate(['/']);
-                    }
-                });
-        });
+        //     if( !result ) return;
+        //     // console.log("deleting")
+
+        //     this.heroesService.deleteHeroById( this.currentHero.id )
+        //         .subscribe( wasDeleted => {
+        //                if (result) {
+        //                  this.showSnackbar(`${this.currentHero.superhero} Eliminated`);
+        //                  this._router.navigate(['/']);
+        //                }
+        //         });
+        // });
     }
 
     showSnackbar(message: string): void {
