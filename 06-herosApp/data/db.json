@@ -17,15 +17,6 @@
       "alt_img": null
     },
     {
-      "id": "dc-superman",
-      "superhero": "Superman",
-      "publisher": "DC Comics",
-      "alter_ego": "Kal-El",
-      "first_appearance": "Action Comics #1",
-      "characters": "Kal-El",
-      "alt_img": "https://cdnx.jumpseller.com/shazam-online/image/31168814/la_muerte_de_superman_30_aniversario_ovnipress.jpg?1674664964"
-    },
-    {
       "id": "dc-flash",
       "superhero": "Flash",
       "publisher": "DC Comics",
