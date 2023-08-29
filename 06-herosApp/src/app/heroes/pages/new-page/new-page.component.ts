@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Publisher, Hero } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
+import { switchMap } from 'rxjs';
 
 @Component({
     selector: 'app-new-page',
@@ -27,7 +30,9 @@ export class NewPageComponent implements OnInit {
     });
 
     constructor(
-        private heroesService: HeroesService
+        private heroesService: HeroesService,
+        private _activatedRoute: ActivatedRoute,
+        private _router: Router,
     ) {}
 
     get currentHero(): Hero {
@@ -37,6 +42,19 @@ export class NewPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+        if( !this._router.url.includes('edit') ) return;
+
+        this._activatedRoute.params
+            .pipe(
+               switchMap( ({ id }) => this.heroesService.getHeroById( id ) ),
+            ).subscribe( hero => {
+                if( !hero ) return this._router.navigateByUrl('/');
+
+                this.heroForm.reset( hero );
+
+                return;
+            });
 
     }
 
