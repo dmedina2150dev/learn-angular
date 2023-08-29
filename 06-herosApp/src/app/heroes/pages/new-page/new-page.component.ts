@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Publisher } from '../../interfaces/hero.interface';
+import { Publisher, Hero } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
     selector: 'app-new-page',
@@ -25,16 +26,42 @@ export class NewPageComponent implements OnInit {
         alt_img: new FormControl(''),
     });
 
+    constructor(
+        private heroesService: HeroesService
+    ) {}
+
+    get currentHero(): Hero {
+        const hero = this.heroForm.value as Hero;
+
+        return hero;
+    }
+
     ngOnInit(): void {
 
     }
 
     onSubmit(): void {
-        console.log({
-            formIsValid: this.heroForm.valid,
-            value: this.heroForm.value,
-            valuesValidOrNotValid: this.heroForm.getRawValue()
-        })
+        // console.log({
+        //     formIsValid: this.heroForm.valid,
+        //     value: this.heroForm.value,
+        //     valuesValidOrNotValid: this.heroForm.getRawValue()
+        // });
+
+        if( this.heroForm.invalid ) return;
+
+        if( this.currentHero.id ) {
+            this.heroesService.updateHero( this.currentHero )
+                .subscribe( hero => {
+                    // TODO: Mostrar snackbar
+                });
+
+            return;
+        }
+
+        this.heroesService.addHero( this.currentHero )
+        .subscribe( hero => {
+            // TODO: Mostrar snackbar, y navegar a /heroes/edit/hero.id
+        });
     }
 
 }
