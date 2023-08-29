@@ -4,7 +4,8 @@
 
 # Ng-Template
 
-
+# structuredClone (JavaScript)
+Solucion que nos brinda Javascript para realizar un clon profundo(depp clone) de un objeto, sin importar cuando objetos y propiedades tenga lo que estamos clonando
 
 # Modulos en Angular
 
@@ -106,6 +107,9 @@ public heroForm = new FormGroup({
 this.heroForm.getRawValue() // Retorna todos los campos del formulario sin importar si estan validos o no
 
 ```
+
+## Guard
+Proteccion de rutas
 
 
 # Lecturas pendientes de Angular
