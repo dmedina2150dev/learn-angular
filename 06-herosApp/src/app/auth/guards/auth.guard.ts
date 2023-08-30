@@ -18,7 +18,7 @@ const checkAuthStatus = (): Observable<boolean> => {
     const authService = inject(AuthService);
     const _router = inject(Router);
 
-    console.log("PASO POR EL CHECK")
+    // console.log("PASO POR EL CHECK")
 
     return authService.checkAuthentication()
         .pipe(
@@ -32,16 +32,16 @@ const checkAuthStatus = (): Observable<boolean> => {
 }
 
 export const canActivateGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-    console.log('CanActivate');
-    console.log({ route, state });
+    // console.log('CanActivate');
+    // console.log({ route, state });
 
     return checkAuthStatus();
     // return false;
 }
 
 export const canMatchGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
-    console.log('CanMatch');
-    console.log({ route, segments });
+    // console.log('CanMatch');
+    // console.log({ route, segments });
 
     return checkAuthStatus();
     // return false;
