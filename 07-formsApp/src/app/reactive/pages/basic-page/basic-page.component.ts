@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+const rtx5090 = {
+    name: 'RX5090',
+    price: 20000,
+    inStorage: 3
+}
 
 @Component({
     templateUrl: './basic-page.component.html',
     styles: [
     ]
 })
-export class BasicPageComponent {
+export class BasicPageComponent implements OnInit {
 
     // * Una forma de crear formularios reactivos
     public myForm: FormGroup = new FormGroup({
@@ -28,12 +34,20 @@ export class BasicPageComponent {
     //     inStorage: [0, [], []],
     // });
 
+
     constructor(
         private _fb: FormBuilder,
     ){}
 
+    ngOnInit(): void {
+        this.myForm.reset( rtx5090 );
+    }
+
     onSave(): void {
         if ( this.myForm.invalid ) return;
         console.log(this.myForm.value);
+
+        //TODO: Al reset podemos mandarle un objeto con las propiedades que tiene el formulario
+        this.myForm.reset({ price: 0, inStorage: 0 });
     }
 }
