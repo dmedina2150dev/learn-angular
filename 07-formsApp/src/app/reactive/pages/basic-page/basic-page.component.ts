@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     templateUrl: './basic-page.component.html',
@@ -13,9 +13,9 @@ export class BasicPageComponent {
         // Todo: El primer argumento es el valor
         // Todo: El segundo argumento validaciones sincronas
         // Todo: El tercero argumento validaciones asincronas
-        name: new FormControl('', [], []),
-        price: new FormControl(0, [], []),
-        inStorage: new FormControl(0, [], []),
+        name: new FormControl('', [ Validators.required, Validators.minLength(3) ], []),
+        price: new FormControl(0, [ Validators.required, Validators.min(0) ], []),
+        inStorage: new FormControl(0, [ Validators.required, Validators.min(0) ], []),
     });
 
     // * Otra forma de crear formularios reactivos
@@ -33,6 +33,7 @@ export class BasicPageComponent {
     ){}
 
     onSave(): void {
+        if ( this.myForm.invalid ) return;
         console.log(this.myForm.value);
     }
 }
